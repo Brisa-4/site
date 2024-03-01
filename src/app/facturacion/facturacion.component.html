@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Sitio Web</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <div class="text-center">
+                            <i class="bi bi-house-door" style="font-size: 6rem; color: #ffff"></i>
+                        </div>
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="/clientes" routerLinkActive="activebutton">
+                                <i class="fas fa-home" style="color:#3ca1e0"></i> Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" routerLink="/clientes" routerLinkActive="activebutton"
+                                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-fill-add" style="color: #ba78ab"></i> Agregar clientes
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"
+                                style="background-color: #55585e">
+                                <li><a class="dropdown-item" data-bs-toggle="modal"
+                                        data-bs-target="#personaMoralModal">Persona
+                                        moral</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/productos" routerLinkActive="activebutton">
+                                <i class="fas fa-shopping-cart" style="color: #f29b52"></i> Productos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/facturacion">
+                                <i class="bi bi-file-earmark-ruled-fill" style="color: #7fb558"></i> Facturar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="factura" class="section bg-light col-md-9 ms-sm-auto col-lg-10">
+                <div class="container fluid">
+                    <div class="row">
+                        <p><strong>
+                                <span class="bi bi-list-columns-reverse"></span> Datos de la Factura
+                            </strong></p>
+                        <div class="col-md-12 mb-3">
+                            <div class="card w-100 mb-3">
+                                <div class="card-body">
+                                    <form class="row g-3">
+                                        <div class="col-md-8">
+                                            <label for="nombreEmisor" class="form-label">Nombre Emisor:</label>
+                                            <input class="form-control" type="text"
+                                                value="SYS Technology and Innovation"
+                                                aria-label="Disabled input example" disabled readonly>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="cp" class="form-label">Código Postal Emisor:</label>
+                                            <input type="text" class="form-control" value="68050" id="cp" required>
+                                            <div class="invalid-feedback">
+                                                ¡Por favor introduce un CP!
+                                            </div>
+                                        </div>
+                                        <!-- Desplegable con clientes para la factura -->
+                                        <div class="col-md-8">
+                                            <label for="seleccionCliente" class="form-label"><i
+                                                    class="bi bi-person-check"></i>
+                                                Seleccionar
+                                                Cliente para Factura:</label>
+                                            <select id="listaClientes" class="form-select"
+                                                aria-label="Default select example">
+                                                <option selected>Seleccione un cliente...</option>
+                                                <!-- Aquí se agregar las opciones automáticamente -->
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="seleccionCliente" class="form-label">
+                                                Lugar de expedición:</label>
+                                            <input type="text" class="form-control" required>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="fw-normal">Forma de pago:</p>
+                                            <select class="form-select" aria-label="Default select example">
+                                                <option selected>Selecciona la forma de pago</option>
+                                                <option value="1">Tarjeta de crédito</option>
+                                                <option value="2">Tarjeta de débito</option>
+                                                <option value="3">Transferencia bancaria</option>
+                                            </select>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p><strong>
+                                <span class="fas fa-shopping-cart"></span> Seleccionar producto:
+                            </strong></p>
+                        <div class="col-md-12 mb-3">
+                            <div class="card w-100 mb-3">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-8 ">
+                                            <form class="row">
+                                                <!-- Desplegable con productos -->
+                                                <div class="modal fade" id="formularioModal" tabindex="-1"
+                                                    aria-labelledby="ModalProducto" aria-hidden="true">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="ModalProducto">Agregar
+                                                                    Producto</h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <!-- Aquí coloca tu formulario -->
+                                                                <form>
+                                                                    <div class="mb-3">
+                                                                        <label for="clave"
+                                                                            class="form-label">Clave:</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="clave" required>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="nombre" class="form-label">Nombre
+                                                                            del
+                                                                            Producto:</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="nombre" required>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="descripcion"
+                                                                            class="form-label">Descripción:</label>
+                                                                        <textarea class="form-control" id="descripcion"
+                                                                            rows="3" required></textarea>
+                                                                    </div>
+                                                                    <div class="mb-3">
+                                                                        <label for="precio"
+                                                                            class="form-label">Precio:</label>
+                                                                        <input type="number" class="form-control"
+                                                                            id="precio" step="0.01" required>
+                                                                    </div>
+                                                                    <button type="button" class="btn btn-primary"
+                                                                        id="agregarProducto">Agregar Producto</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <select class="form-select" id="productos">
+                                                    <option selected class="fst-italic">Elige una opción...</option>
+                                                    <option value="1">Paquete 1</option>
+                                                    <option value="2">Paquete 2</option>
+                                                    <option value="3">Paquete 3</option>
+                                                    <option value="3">Paquete 4</option>
+                                                    <option value="3">Paquete 5</option>
+                                                    <!-- Opciones de productos se agregarán aquí dinámicamente -->
+                                                </select>
+
+                                            </form>
+                                        </div>
+                                        <div class="col-md-1 d-flex align-items-center justify-content-center">
+                                            <i class="fs-4 bi bi-plus-lg" id="iconoModal" style="color:#3ca1e0"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-flex justify-content-end">
+                            <div class="d-grid gap-2 d-md-block">
+                                <button type="submit" class="btn btn-light">
+                                    <i class="bi bi-search"></i> Vista previa
+                                </button>
+                                <button type="button" class="btn btn-primary" id="crearFacturaBtn">
+                                    <i class="bi bi-clipboard2-check"></i> Crear Factura
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Modal mensaje -->
+                        <div class="modal fade" id="facturaGeneradaModal" tabindex="-1"
+                            aria-labelledby="facturaGeneradaModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="facturaGeneradaModalLabel">Factura Generada
+                                            exitosamente
+                                        </h5>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                            aria-label="Close"></button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <button type="submit" class="btn btn-light">
+                                            Enviar por Email
+                                        </button>
+                                        <button type="button" class="btn btn-primary" id="crearFacturaBtn">
+                                            Descargar
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/js/bootstrap.min.js"></script>
+    <script>
+        function agregarCliente() {
+            // Captura de los valores del formulario
+            var nombre = document.getElementById("nombre").value;
+            var apellido = document.getElementById("apellido").value;
+            var apellido2 = document.getElementById("apellido2").value;
+            var rfc = document.getElementById("rfc").value;
+            var cp = document.getElementById("cp").value;
+            var direccion = document.getElementById("direccion").value;
+
+            // Crea el elemento <option>
+            var option = document.createElement("option");
+
+            // Establece el texto del <option> con los datos del cliente
+            option.text = nombre + " " + apellido + " " + apellido2;
+            document.getElementById("listaClientes").appendChild(option);
+
+            // Limpia el formulario
+            document.getElementById("formularioClientes").reset();
+        }
+
+        document.getElementById("crearFacturaBtn").addEventListener("click", function () {
+            var facturaModal = new bootstrap.Modal(document.getElementById('facturaGeneradaModal'));
+            facturaModal.show();
+        });
+    </script>
+</body>

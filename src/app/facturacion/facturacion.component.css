@@ -1,0 +1,64 @@
+body {
+  padding: 0px;
+  /* Ajusta según la altura del navbar */
+}
+
+.section {
+  min-height: 100vh;
+}
+
+#factura {
+  padding: 20px;
+}
+
+#sidebar {
+  background-color: #2d3038;
+  /* Color de fondo del navbar */
+  color: #fff;
+  /* Color del texto en el navbar */
+}
+
+#sidebar a {
+  color: #fff;
+  /* Color de los enlaces en el navbar */
+}
+
+#sidebar a:hover {
+  background-color: #42454c;
+  /* Color de fondo al pasar el mouse sobre los enlaces  #005086*/
+}
+
+#factura {
+  padding: 20px;
+}
+
+.btn-primary {
+  background-color: #3483fa;
+  border-color: #3483fa;
+}
+
+.btn-primary:hover {
+  background-color: #2968c8;
+}
+
+.btn-light {
+  background-color: #e3edfb;
+  border-color: #e3edfb;
+  color: #0c83c3;
+}
+
+.btn-light:hover {
+  background-color: #d9e7fa;
+  border-color: #d9e7fa;
+  color: #0c83c3;
+}
+
+.btn-success {
+  background-color: #1aab20;
+  border-color: #1aab20;
+}
+
+.btn-success:hover {
+  background-color: #00a207;
+  border-color: #00a207;
+}

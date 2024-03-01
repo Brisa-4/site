@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Sitio Web</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebar" class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <div class="text-center">
+                            <i class="bi bi-house-door" style="font-size: 6rem; color: #ffff"></i>
+                        </div>
+                        <li class="nav-item">
+                            <a class="nav-link active" routerLink="/clientes" routerLinkActive="activebutton">
+                                <i class="fas fa-home" style="color:#3ca1e0"></i> Inicio
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" routerLink="/clientes" routerLinkActive="activebutton"
+                                id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="bi bi-person-fill-add" style="color: #ba78ab"></i> Agregar clientes
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown"
+                                style="background-color: #55585e">
+                                <li><a class="dropdown-item" data-bs-toggle="modal"
+                                        data-bs-target="#personaMoralModal">Persona
+                                        moral</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/productos" routerLinkActive="activebutton">
+                                <i class="fas fa-shopping-cart" style="color: #f29b52"></i> Productos
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/facturacion">
+                                <i class="bi bi-file-earmark-ruled-fill" style="color: #7fb558"></i> Facturar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <div id="producto" class="section bg-light col-md-9 ms-sm-auto col-lg-10">
+                <div class="container-fluid text-center">
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-4 mb-4">
+                                    <div class="card">
+                                        <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Producto 1</h5>
+                                            <p class="card-text">Detalles del producto 1.</p>
+                                            <p class="card-text">$ 580.00</p>
+                                            <div class="d-grid gap-2 col-10 mx-auto">
+                                                <a href="#" class="btn btn-primary fw-semibold" data-bs-toggle="modal"
+                                                    data-bs-target="#modalCompra">Comprar</a>
+                                                <a href="#" class="btn btn-light fw-semibold"
+                                                    onclick="agregarAlCarrito()">Agregar
+                                                    al carrito</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card">
+                                        <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Producto 2</h5>
+                                            <p class="card-text">Detalles del producto 1.</p>
+                                            <p class="card-text">$900.00</p>
+                                            <div class="d-grid gap-2 col-10 mx-auto">
+                                                <a href="#" class="btn btn-primary fw-semibold" data-bs-toggle="modal"
+                                                    data-bs-target="#modalCompra">Comprar</a>
+                                                <a href="#" class="btn btn-light fw-semibold"
+                                                    onclick="agregarAlCarrito()">Agregar
+                                                    al carrito</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card">
+                                        <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Producto 3</h5>
+                                            <p class="card-text">Detalles del producto 1.</p>
+                                            <p class="card-text">$1,450.00</p>
+                                            <div class="d-grid gap-2 col-10 mx-auto">
+                                                <a href="#" class="btn btn-primary fw-semibold" data-bs-toggle="modal"
+                                                    data-bs-target="#modalCompra">Comprar</a>
+                                                <a href="#" class="btn btn-light fw-semibold"
+                                                    onclick="agregarAlCarrito()">Agregar
+                                                    al carrito</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card">
+                                        <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Producto 4</h5>
+                                            <p class="card-text">Detalles del producto 1.</p>
+                                            <p class="card-text">$1,750.00</p>
+                                            <div class="d-grid gap-2 col-10 mx-auto">
+                                                <a href="#" class="btn btn-primary fw-semibold" data-bs-toggle="modal"
+                                                    data-bs-target="#modalCompra">Comprar</a>
+                                                <a href="#" class="btn btn-light fw-semibold"
+                                                    onclick="agregarAlCarrito()">Agregar
+                                                    al carrito</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-4">
+                                    <div class="card">
+                                        <img src="producto1.jpg" class="card-img-top" alt="Producto 1">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Producto 5</h5>
+                                            <p class="card-text">Detalles del producto 1.</p>
+                                            <p class="card-text">$2,370.00</p>
+                                            <div class="d-grid gap-2 col-10 mx-auto">
+                                                <a href="#" class="btn btn-primary fw-semibold" data-bs-toggle="modal"
+                                                    data-bs-target="#modalCompra">Comprar</a>
+                                                <a href="#" class="btn btn-light fw-semibold"
+                                                    onclick="agregarAlCarrito()">Agregar
+                                                    al carrito</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="card">
+                                <h6 class="card-header text-uppercase">Detalle del pago</h6>
+                                <div class="card-body">
+                                    <div class="input-group col-md-12">
+                                        <div class="col-md-8">
+                                            <p class="fw-semibold">Total a pagar <a href="#"
+                                                    class="text-decoration-none fs-6">Ver
+                                                    detalle</a>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4 fw-semibold" style="color: #0e72ff;">
+                                            $1,750.00
+                                        </div>
+                                    </div>
+                                    <p class="fw-light">IVA Incluido - Pesos mexicanos</p>
+                                    <div class="d-grid gap-2">
+                                        <button class="btn btn-success" type="button">Comprar ahora</button>
+                                        <button class="btn btn-outline-success" type="button" data-bs-toggle="modal"
+                                            data-bs-target="#modalPago">Elegir forma de pago</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="container-fluid">
+                    <div class="modal fade" id="modalPago" tabindex="-1" aria-labelledby="modalPagoLabel"
+                        aria-hidden="true">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <!-- Card/modal -->
+                                    <div class="card">
+                                        <div class="input-group">
+                                            <div class="col-md-8">
+                                                <h6 class="card-header text-uppercase">Transferencia o depósito
+                                                    bancario cbu/cvu
+                                                </h6>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h6 class="card-header text-uppercase" style="color: #0e72ff;">
+                                                    Cambiar medio de pago
+                                                </h6>
+                                            </div>
+                                        </div>
+                                        <div class="card-body">
+                                            <p class="fw-normal">Selecciona el metodo de transaccion que deseas:</p>
+                                            <ul class="list-group list-group-flush">
+
+                                                <div class="d-grid gap-2 d-md-block">
+                                                    <button class="btn btn-primary" type="button">
+                                                        <i class="fa-solid fa-money-bill-transfer"></i>
+                                                        Transferencia
+                                                    </button>
+                                                    <button class="btn btn-light" type="button">
+                                                        <i class="fas fa-money-check"></i> Depósito
+                                                    </button>
+                                                </div>
+                                                <li class="list-group-item"></li>
+
+                                                <div class="input-group col-md-12">
+                                                    <div class="col-md-8 mt-4">
+                                                        <button class="btn btn-light" type="button">
+                                                            <i class="fa-solid fa-money-bill-transfer"></i>
+                                                            Transferencia
+                                                        </button>
+                                                    </div>
+                                                    <div class="col-md-4 mt-4">
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox" value=""
+                                                                id="flexCheckDefault">
+                                                            <label class="form-check-label" for="flexCheckDefault">
+                                                                Haré la transferencia más tarde
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <p class="fw-normal mt-4">Selecciona tu banco de origen:</p>
+                                                <select class="form-select form-select-sm fst-italic">
+                                                    <option selected class="fst-italic">Elige una opción </option>
+                                                    <option value="1">Santander</option>
+                                                    <option value="2">BBVA</option>
+                                                    <option value="3">Banamex</option>
+                                                    <option value="3">Bancomer</option>
+                                                    <option value="3">Banorte</option>
+                                                </select>
+
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <p class="fw-lighter fs-6">Asegúrate de guardar los cambios para continuar.</p>
+
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-target="#modalbanking"
+                                        data-bs-toggle="modal">Guardar cambios</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="modal fade" id="modalbanking" aria-hidden="true" aria-labelledby="modalbanking"
+                        tabindex="-1">
+                        <div class="modal-dialog modal-fullscreen">
+                            <div class="modal-content">
+
+                                <div class="modal-body">
+                                    <div class="card w-100 mb-3">
+                                        <div class="card-body">
+                                            <p class="fw-semibold">Ingrese en su página de Home Banking los siguientes
+                                                datos: </p>
+                                            <div class="mb-2 row">
+                                                <label for="Entidad Bancaria" class="col-sm-2 col-form-label">Entidad
+                                                    Bancaria:</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly
+                                                        class="form-control-plaintext fw-semibold" id="Entidad Bancaria"
+                                                        value="BBVA">
+                                                </div>
+                                                <label for="tipo de cuenta" class="col-sm-2 col-form-label">Tipo de
+                                                    cuenta: </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly
+                                                        class="form-control-plaintext fw-semibold" id="tipo de cuenta"
+                                                        value="Cheques">
+                                                </div>
+
+                                                <label for="titular" class="col-sm-2 col-form-label">Titular de la
+                                                    cuenta: </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly
+                                                        class="form-control-plaintext fw-semibold"
+                                                        id="titular de la cuenta"
+                                                        value="Donweb Mexico S. de R.L. de C.V.">
+                                                </div>
+                                                <label for="titular" class="col-sm-2 col-form-label">Titular de la
+                                                    cuenta: </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly
+                                                        class="form-control-plaintext fw-semibold"
+                                                        id="titular de la cuenta" value="0113522776">
+                                                </div>
+                                                <label for="titular" class="col-sm-2 col-form-label">CLABE: </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly
+                                                        class="form-control-plaintext fw-semibold"
+                                                        id="titular de la cuenta" value="012180001135227762">
+                                                </div>
+                                                <label for="titular" class="col-sm-2 col-form-label">SWIFT </label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly
+                                                        class="form-control-plaintext fw-semibold"
+                                                        id="titular de la cuenta" value="BCMRMXMM">
+                                                </div>
+                                                <label for="titular" class="col-sm-2 col-form-label fw-semibold">Importe
+                                                    a pagar</label>
+                                                <div class="col-sm-10">
+                                                    <input type="text" readonly class="form-control-plaintext fw-normal"
+                                                        id="titular de la cuenta" value="$1,750.00">
+                                                </div>
+                                                <a href="#" class="text-decoration-none">Ir a homebanking</a>
+                                            </div>
+
+                                            <p class="fw-normal">Una vez finalizada la transferencia completa los datos:
+                                            </p>
+                                            <div class="mb-2">
+                                                <p class="fw-normal mb-1">Fecha de pago </p>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i
+                                                            class="bi bi-calendar3"></i></span>
+                                                    <input type="text" class="form-control fst-italic" id="fecha-pago"
+                                                        placeholder="dd/mm/yyyy" required>
+                                                </div>
+                                            </div>
+                                            <div class="mb-2">
+                                                <p class="fw-normal mb-1">Comprobante (opcional):</p>
+                                                <div class="input-group">
+                                                    <span class="input-group-text"><i
+                                                            class="bi bi-paperclip"></i></span>
+                                                    <input type="file" class="form-control fst-italic" id="fecha-pago"
+                                                        placeholder="dd/mm/yyyy">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary"
+                                        data-bs-dismiss="modal">Cerrar</button>
+                                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar
+                                        cambios</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2/dist/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
